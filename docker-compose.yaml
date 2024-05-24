@@ -1,0 +1,79 @@
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    ports:
+      - "8088:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  file-browser:
+    image: filebrowser/filebrowser
+    container_name: file-browser
+    user: root
+    ports:
+      - "8089:80"
+    volumes:
+      - /mnt/storage:/srv
+    restart: unless-stopped
+
+  transmission-container:
+    image: linuxserver/transmission
+    container_name: transmission-container
+    ports:
+      - "8090:9091"
+      - "51414:51413"
+    volumes:
+      - /mnt/storage/ContainerData/transmission:/etc/transmission-daemon
+      - /mnt/storage/media/download:/downloads
+    restart: unless-stopped
+  
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    networks:
+      - jellyfin-net
+    ports:
+      - "8091:8096"
+      - "8920:8920"
+    volumes:
+      - /mnt/storage/ContainerData/jellyfin:/config
+      - /mnt/storage/media:/media
+    restart: unless-stopped
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    user: root
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    ports:
+      - "8092:8083"
+    volumes:
+      - /mnt/storage/ContainerData/calibre:/config
+      - /mnt/storage/media/books:/books
+    restart: unless-stopped
+
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    hostname: local-syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /mnt/storage/backup:/var/syncthing
+    ports:
+      - 8093:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+
+networks:
+  jellyfin-net:
+    driver: bridge
