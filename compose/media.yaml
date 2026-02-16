@@ -1,0 +1,43 @@
+services:
+  transmission-container:
+    image: linuxserver/transmission
+    container_name: transmission-container
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8090:9091"
+      - "51414:51413"
+    volumes:
+      - ${SSD_DIR}/config/transmission:/etc/transmission-daemon
+      - ${HDD_DIR}/media/download:/downloads
+    restart: unless-stopped
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    environment:
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8091:8096"
+      - "8920:8920"
+    volumes:
+      - ${SSD_DIR}/config/jellyfin:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    user: root
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8092:8083"
+    volumes:
+      - ${SSD_DIR}/config/calibre:/config
+      - ${HDD_DIR}/media/books:/books
+    restart: unless-stopped

@@ -1,0 +1,26 @@
+services:
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    environment:
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8088:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${SSD_DIR}/config/portainer:/data
+    restart: unless-stopped
+
+  file-browser:
+    image: filebrowser/filebrowser
+    container_name: file-browser
+    user: root
+    environment:
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8089:80"
+    volumes:
+      - ${SSD_DIR}/config/filebrowser:/config
+      - ${HDD_DIR}:/srv/hdd
+      - ${SSD_DIR}:/srv/ssd
+    restart: unless-stopped

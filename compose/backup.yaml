@@ -1,0 +1,16 @@
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8095:8200"
+    volumes:
+      - ${SSD_DIR}/config/duplicati:/config
+      - ${SSD_DIR}:/source/ssd:ro
+      - ${HDD_DIR}:/source/hdd:ro
+      - ${BACKUP_LOCATION}:/backups
+    restart: unless-stopped
