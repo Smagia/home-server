@@ -78,8 +78,7 @@ HDD_DIR/
 ├── media/
 │   ├── download/
 │   └── books/
-├── immich/
-│   └── upload/
+├── photos/
 ├── sync/
 └── backups/
 ```
