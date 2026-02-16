@@ -1,0 +1,43 @@
+services:
+  transmission-container:
+    image: linuxserver/transmission
+    container_name: transmission-container
+    ports:
+      - "8090:9091"
+      - "51414:51413"
+    volumes:
+      - ${BASE_DIR}/ContainerData/transmission:/etc/transmission-daemon
+      - ${BASE_DIR}/media/download:/downloads
+    restart: unless-stopped
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    networks:
+      - jellyfin-net
+    ports:
+      - "8091:8096"
+      - "8920:8920"
+    volumes:
+      - ${BASE_DIR}/ContainerData/jellyfin:/config
+      - ${BASE_DIR}/media:/media
+    restart: unless-stopped
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    user: root
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    ports:
+      - "8092:8083"
+    volumes:
+      - ${BASE_DIR}/ContainerData/calibre:/config
+      - ${BASE_DIR}/media/books:/books
+    restart: unless-stopped
+
+networks:
+  jellyfin-net:
+    driver: bridge

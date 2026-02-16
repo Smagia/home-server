@@ -1,0 +1,19 @@
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    ports:
+      - "8088:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  file-browser:
+    image: filebrowser/filebrowser
+    container_name: file-browser
+    user: root
+    ports:
+      - "8089:80"
+    volumes:
+      - ${BASE_DIR}:/srv
+    restart: unless-stopped
