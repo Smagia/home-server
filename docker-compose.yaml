@@ -1,4 +1,7 @@
 include:
+  - path: compose/dashboard.yaml
+    env_file:
+      - .env
   - path: compose/management.yaml
     env_file:
       - .env

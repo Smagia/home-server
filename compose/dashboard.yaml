@@ -1,0 +1,11 @@
+services:
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    environment:
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8087:8080"
+    volumes:
+      - ./compose/homer:/www/assets
+    restart: unless-stopped

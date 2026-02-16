@@ -6,6 +6,7 @@ This repository contains a Docker Compose configuration for setting up a local h
 
 ```
 compose/
+├── dashboard.yaml    # Homer dashboard with links to all services
 ├── management.yaml   # Server management tools
 ├── media.yaml        # Media streaming and downloads
 ├── sync.yaml         # File synchronization
@@ -16,6 +17,12 @@ compose/
 The main `docker-compose.yaml` includes all compose files. You can run everything together or individual stacks separately.
 
 ## Services
+
+### Dashboard (`compose/dashboard.yaml`)
+
+| Service | Description | Port |
+|---|---|---|
+| Homer | Dashboard with links to all services | `8087` |
 
 ### Management (`compose/management.yaml`)
 
