@@ -53,11 +53,42 @@ The main `docker-compose.yaml` includes all compose files. You can run everythin
 |---|---|---|
 | Duplicati | Web-based backup solution with scheduling, encryption, and cloud storage support | `8095` |
 
+## Directory Layout
+
+Storage is split across two disks for optimal performance:
+
+| Disk | Variable | Contents |
+|---|---|---|
+| **SSD** | `SSD_DIR` | Service configs (`config/`), Immich database |
+| **HDD** | `HDD_DIR` | Media files, downloads, photos, backups, sync data |
+
+```
+SSD_DIR/
+├── config/
+│   ├── portainer/
+│   ├── filebrowser/
+│   ├── transmission/
+│   ├── jellyfin/
+│   ├── calibre/
+│   └── duplicati/
+└── immich/
+    └── postgres/
+
+HDD_DIR/
+├── media/
+│   ├── download/
+│   └── books/
+├── immich/
+│   └── upload/
+├── sync/
+└── backups/
+```
+
 ## Usage
 
 1. Clone the repository.
 2. Create a `.env` file with the necessary environment variables (see `example.env`).
-3. Set the `BASE_DIR`, `UPLOAD_LOCATION`, `BACKUP_LOCATION`, `DB_PASSWORD` in your environment.
+3. Set `SSD_DIR`, `HDD_DIR`, `UPLOAD_LOCATION`, `BACKUP_LOCATION`, `DB_PASSWORD` in your environment.
 4. Do not change `DB_USERNAME`, `DB_DATABASE_NAME`, and `DB_DATA_LOCATION`, see Immich documentation.
 
 ### Run all services

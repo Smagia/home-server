@@ -8,7 +8,7 @@ services:
       - "8088:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ${BASE_DIR}/ContainerData/portainer:/data
+      - ${SSD_DIR}/config/portainer:/data
     restart: unless-stopped
 
   file-browser:
@@ -20,6 +20,7 @@ services:
     ports:
       - "8089:80"
     volumes:
-      - ${BASE_DIR}/ContainerData/filebrowser:/config
-      - ${BASE_DIR}:/srv
+      - ${SSD_DIR}/config/filebrowser:/config
+      - ${HDD_DIR}:/srv/hdd
+      - ${SSD_DIR}:/srv/ssd
     restart: unless-stopped

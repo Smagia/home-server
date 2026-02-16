@@ -10,8 +10,8 @@ services:
       - "8090:9091"
       - "51414:51413"
     volumes:
-      - ${BASE_DIR}/ContainerData/transmission:/etc/transmission-daemon
-      - ${BASE_DIR}/media/download:/downloads
+      - ${SSD_DIR}/config/transmission:/etc/transmission-daemon
+      - ${HDD_DIR}/media/download:/downloads
     restart: unless-stopped
 
   jellyfin:
@@ -23,8 +23,8 @@ services:
       - "8091:8096"
       - "8920:8920"
     volumes:
-      - ${BASE_DIR}/ContainerData/jellyfin:/config
-      - ${BASE_DIR}/media:/media
+      - ${SSD_DIR}/config/jellyfin:/config
+      - ${HDD_DIR}/media:/media
     restart: unless-stopped
 
   calibre-web:
@@ -38,6 +38,6 @@ services:
     ports:
       - "8092:8083"
     volumes:
-      - ${BASE_DIR}/ContainerData/calibre:/config
-      - ${BASE_DIR}/media/books:/books
+      - ${SSD_DIR}/config/calibre:/config
+      - ${HDD_DIR}/media/books:/books
     restart: unless-stopped

@@ -9,7 +9,8 @@ services:
     ports:
       - "8095:8200"
     volumes:
-      - ${BASE_DIR}/ContainerData/duplicati:/config
-      - ${BASE_DIR}:/source:ro
+      - ${SSD_DIR}/config/duplicati:/config
+      - ${SSD_DIR}:/source/ssd:ro
+      - ${HDD_DIR}:/source/hdd:ro
       - ${BACKUP_LOCATION}:/backups
     restart: unless-stopped
