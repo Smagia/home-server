@@ -6,6 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
     volumes:
       - ${BASE_DIR}/backup:/var/syncthing
     ports:

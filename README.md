@@ -43,7 +43,6 @@ The main `docker-compose.yaml` includes all compose files. You can run everythin
 | Service | Description | Port |
 |---|---|---|
 | Immich Server | Self-hosted photo and video backup solution | `8094` |
-| Immich Microservices | Background processing (transcoding, thumbnails) | - |
 | Immich Machine Learning | AI/ML tasks (image recognition, auto-tagging) | - |
 | Redis | Cache and message broker for Immich | - |
 | PostgreSQL | Database with vector extension for Immich | - |
