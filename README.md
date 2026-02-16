@@ -9,7 +9,8 @@ compose/
 ├── management.yaml   # Server management tools
 ├── media.yaml        # Media streaming and downloads
 ├── sync.yaml         # File synchronization
-└── photos.yaml       # Photo and video backup (Immich)
+├── photos.yaml       # Photo and video backup (Immich)
+└── backup.yaml       # Data backup and restore
 ```
 
 The main `docker-compose.yaml` includes all compose files. You can run everything together or individual stacks separately.
@@ -47,11 +48,17 @@ The main `docker-compose.yaml` includes all compose files. You can run everythin
 | Redis | Cache and message broker for Immich | - |
 | PostgreSQL | Database with vector extension for Immich | - |
 
+### Backup (`compose/backup.yaml`)
+
+| Service | Description | Port |
+|---|---|---|
+| Duplicati | Web-based backup solution with scheduling, encryption, and cloud storage support | `8095` |
+
 ## Usage
 
 1. Clone the repository.
 2. Create a `.env` file with the necessary environment variables (see `example.env`).
-3. Set the `BASE_DIR`, `UPLOAD_LOCATION`, `DB_PASSWORD` in your environment.
+3. Set the `BASE_DIR`, `UPLOAD_LOCATION`, `BACKUP_LOCATION`, `DB_PASSWORD` in your environment.
 4. Do not change `DB_USERNAME`, `DB_DATABASE_NAME`, and `DB_DATA_LOCATION`, see Immich documentation.
 
 ### Run all services

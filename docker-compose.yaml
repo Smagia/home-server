@@ -11,3 +11,6 @@ include:
   - path: compose/photos.yaml
     env_file:
       - .env
+  - path: compose/backup.yaml
+    env_file:
+      - .env

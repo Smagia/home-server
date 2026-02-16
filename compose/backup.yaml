@@ -1,0 +1,15 @@
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+    ports:
+      - "8095:8200"
+    volumes:
+      - ${BASE_DIR}/ContainerData/duplicati:/config
+      - ${BASE_DIR}:/source:ro
+      - ${BACKUP_LOCATION}:/backups
+    restart: unless-stopped
