@@ -1,0 +1,14 @@
+- datetime:
+    text_size: 2xl
+    format:
+      dateStyle: full
+      timeStyle: short
+      hour12: false
+
+- resources:
+    cpu: true
+    memory: true
+    refresh: 3000
+    uptime: true
+    units: metric
+    disk: /

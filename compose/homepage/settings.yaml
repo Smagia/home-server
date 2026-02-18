@@ -1,0 +1,22 @@
+title: Home Server
+description: Personal Dashboard
+theme: dark
+color: sky
+headerStyle: clean
+hideVersion: true
+cardBlur: sm
+useEqualHeights: true
+
+layout:
+  Management:
+    style: row
+    columns: 2
+  Media:
+    style: row
+    columns: 3
+  Files & Photos:
+    style: row
+    columns: 2
+  Data:
+    style: row
+    columns: 2

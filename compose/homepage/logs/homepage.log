@@ -1,0 +1,33 @@
+[2026-02-18T09:27:40.464Z] info: kubernetes.yaml was copied to the config folder
+[2026-02-18T09:30:24.496Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.754Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.762Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.764Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.771Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.777Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.781Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.784Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.787Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.795Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.798Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:24.799Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:49.929Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:49.945Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.791Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.867Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.869Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.872Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.877Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.880Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.881Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.884Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.885Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.889Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.890Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:51.892Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:54.349Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:57.457Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:30:57.464Z] error: Host validation failed for: localhost:8087. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-18T09:31:19.613Z] info: proxmox.yaml was copied to the config folder
+[2026-02-18T09:31:19.639Z] info: custom.css was copied to the config folder
+[2026-02-18T09:31:19.641Z] info: custom.js was copied to the config folder

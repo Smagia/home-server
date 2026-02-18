@@ -1,11 +1,13 @@
 services:
-  homer:
-    image: b4bz/homer
-    container_name: homer
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
     environment:
       - TZ=${TZ:-Etc/UTC}
+      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_ALLOWED_HOSTS}
     ports:
-      - "8087:8080"
+      - "8087:3000"
     volumes:
-      - ./compose/homer:/www/assets
+      - ./homepage:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
