@@ -1,0 +1,40 @@
+services:
+  paperless-ngx:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    container_name: paperless-ngx
+    environment:
+      - TZ=${TZ:-Etc/UTC}
+      - PAPERLESS_REDIS=redis://paperless-redis:6379
+      - PAPERLESS_DBHOST=paperless-db
+      - PAPERLESS_DBNAME=${PAPERLESS_DB_NAME:-paperless}
+      - PAPERLESS_DBUSER=${PAPERLESS_DB_USERNAME:-paperless}
+      - PAPERLESS_DBPASS=${PAPERLESS_DB_PASSWORD:-toChange}
+      - PAPERLESS_SECRET_KEY=${PAPERLESS_SECRET_KEY:-changeme}
+      - PAPERLESS_TIME_ZONE=${TZ:-Etc/UTC}
+      - PAPERLESS_URL=${PAPERLESS_URL:-http://localhost:8096}
+    ports:
+      - "8096:8000"
+    volumes:
+      - ${SSD_DIR}/config/paperless:/usr/src/paperless/data
+      - ${HDD_DIR}/documents/media:/usr/src/paperless/media
+      - ${HDD_DIR}/documents/consume:/usr/src/paperless/consume
+    depends_on:
+      - paperless-db
+      - paperless-redis
+    restart: unless-stopped
+
+  paperless-redis:
+    image: redis:7-alpine
+    container_name: paperless-redis
+    restart: unless-stopped
+
+  paperless-db:
+    image: postgres:15-alpine
+    container_name: paperless-db
+    environment:
+      - POSTGRES_DB=${PAPERLESS_DB_NAME:-paperless}
+      - POSTGRES_USER=${PAPERLESS_DB_USERNAME:-paperless}
+      - POSTGRES_PASSWORD=${PAPERLESS_DB_PASSWORD:-toChange}
+    volumes:
+      - ${SSD_DIR}/paperless/postgres:/var/lib/postgresql/data
+    restart: unless-stopped

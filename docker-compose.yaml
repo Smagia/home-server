@@ -17,3 +17,6 @@ include:
   - path: compose/backup.yaml
     env_file:
       - .env
+  - path: compose/documents.yaml
+    env_file:
+      - .env
