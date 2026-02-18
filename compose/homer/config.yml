@@ -87,3 +87,12 @@ services:
         url: "http://localhost:8095"
         icon: "fas fa-hdd"
         tag: "backup"
+
+  - name: "Documents"
+    icon: "fas fa-file-alt"
+    items:
+      - name: "Paperless-ngx"
+        subtitle: "Document management"
+        url: "http://localhost:8096"
+        icon: "fas fa-file-invoice"
+        tag: "documents"
