@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   jellyfin:
-    image: jellyfin/jellyfin@sha256:1694ff069f0c9dafb283c36765175606866769f5d72f2ed56b6a0f1be922fc37
+    image: jellyfin/jellyfin@sha256:aab0b50a3ce43a41621fc7040a379cc57174059aec8f9c17a90176649a0c1ab1
     container_name: jellyfin
     environment:
       - TZ=${TZ:-Etc/UTC}
