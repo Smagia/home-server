@@ -6,6 +6,7 @@ services:
       - PUID=0
       - PGID=0
       - TZ=${TZ:-Etc/UTC}
+      - SETTINGS_ENCRYPTION_KEY=${BACKUP_ENCRYPTION_KEY}
     ports:
       - "8095:8200"
     volumes:
