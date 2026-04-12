@@ -50,6 +50,35 @@
         server: my-server
         container: immich_server
 
+- Arr Stack:
+    - Prowlarr:
+        icon: prowlarr.png
+        href: http://localhost:8097
+        description: Indexer manager
+        server: my-server
+        container: prowlarr
+
+    - Sonarr:
+        icon: sonarr.png
+        href: http://localhost:8098
+        description: TV show automation
+        server: my-server
+        container: sonarr
+
+    - Radarr:
+        icon: radarr.png
+        href: http://localhost:8099
+        description: Movie automation
+        server: my-server
+        container: radarr
+
+    - Readarr:
+        icon: readarr.png
+        href: http://localhost:8100
+        description: Book automation
+        server: my-server
+        container: readarr
+
 - Data:
     - Paperless-ngx:
         icon: paperless-ngx.png

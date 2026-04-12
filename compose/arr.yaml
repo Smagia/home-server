@@ -1,0 +1,59 @@
+services:
+  prowlarr:
+    platform: linux/amd64
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8097:9696"
+    volumes:
+      - ${SSD_DIR}/config/prowlarr:/config
+    restart: unless-stopped
+
+  sonarr:
+    platform: linux/amd64
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8098:8989"
+    volumes:
+      - ${SSD_DIR}/config/sonarr:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped
+
+  radarr:
+    platform: linux/amd64
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8099:7878"
+    volumes:
+      - ${SSD_DIR}/config/radarr:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped
+
+  readarr:
+    platform: linux/amd64
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8100:8787"
+    volumes:
+      - ${SSD_DIR}/config/readarr:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped
