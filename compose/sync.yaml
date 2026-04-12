@@ -1,6 +1,6 @@
 services:
   syncthing:
-    image: syncthing/syncthing
+    image: syncthing/syncthing@sha256:4a961394ca471f4e48f31ad2cef50697e502c8799e2e98477a1c3844e0c5bc54
     container_name: syncthing
     hostname: local-syncthing
     environment:

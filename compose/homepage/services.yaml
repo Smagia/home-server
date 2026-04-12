@@ -1,14 +1,14 @@
 - Management:
     - Portainer:
         icon: portainer.png
-        href: http://localhost:8088
+        href: http://${HOMEPAGE_VAR_HOST}:8088
         description: Container management
         server: my-server
         container: portainer
 
     - File Browser:
         icon: filebrowser.png
-        href: http://localhost:8089
+        href: http://${HOMEPAGE_VAR_HOST}:8089
         description: File management
         server: my-server
         container: file-browser
@@ -16,21 +16,21 @@
 - Media:
     - Jellyfin:
         icon: jellyfin.png
-        href: http://localhost:8091
+        href: http://${HOMEPAGE_VAR_HOST}:8091
         description: Media streaming
         server: my-server
         container: jellyfin
 
     - Transmission:
         icon: transmission.png
-        href: http://localhost:8090
+        href: http://${HOMEPAGE_VAR_HOST}:8090
         description: BitTorrent client
         server: my-server
         container: transmission-container
 
     - Calibre Web:
         icon: calibre-web.png
-        href: http://localhost:8092
+        href: http://${HOMEPAGE_VAR_HOST}:8092
         description: eBook library
         server: my-server
         container: calibre-web
@@ -38,14 +38,14 @@
 - Files & Photos:
     - Syncthing:
         icon: syncthing.png
-        href: http://localhost:8093
+        href: http://${HOMEPAGE_VAR_HOST}:8093
         description: File synchronization
         server: my-server
         container: syncthing
 
     - Immich:
         icon: immich.png
-        href: http://localhost:8094
+        href: http://${HOMEPAGE_VAR_HOST}:8094
         description: Photo & video backup
         server: my-server
         container: immich_server
@@ -53,14 +53,14 @@
 - Data:
     - Paperless-ngx:
         icon: paperless-ngx.png
-        href: http://localhost:8096
+        href: http://${HOMEPAGE_VAR_HOST}:8096
         description: Document management
         server: my-server
         container: paperless-ngx
 
     - Duplicati:
         icon: duplicati.png
-        href: http://localhost:8095
+        href: http://${HOMEPAGE_VAR_HOST}:8095
         description: Encrypted backups
         server: my-server
         container: duplicati

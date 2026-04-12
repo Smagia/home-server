@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce@sha256:bb1730d6411adc64328825897220e7711ad97f73e3c3638f8f2d71e9d2ddb2e7
     container_name: portainer
     environment:
       - TZ=${TZ:-Etc/UTC}
@@ -12,7 +12,7 @@ services:
     restart: unless-stopped
 
   file-browser:
-    image: filebrowser/filebrowser
+    image: filebrowser/filebrowser@sha256:a9fefac049c110a740e378330b6ddd0b6a61fb9edd682aa5f54708c2ede3eb9f
     container_name: file-browser
     user: root
     environment:
@@ -21,6 +21,6 @@ services:
       - "8089:80"
     volumes:
       - ${SSD_DIR}/config/filebrowser:/config
-      - ${HDD_DIR}:/srv/hdd
       - ${SSD_DIR}:/srv/ssd
+      - ${HDD_DIR}:/srv/hdd
     restart: unless-stopped

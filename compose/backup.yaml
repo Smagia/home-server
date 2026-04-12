@@ -1,11 +1,12 @@
 services:
   duplicati:
-    image: lscr.io/linuxserver/duplicati:latest
+    image: lscr.io/linuxserver/duplicati@sha256:023e8152c31f50bf7f89f58a7610d6f1975acbb7f0826b14a008e4e2d719acda
     container_name: duplicati
     environment:
       - PUID=0
       - PGID=0
       - TZ=${TZ:-Etc/UTC}
+      - SETTINGS_ENCRYPTION_KEY=${SETTINGS_ENCRYPTION_KEY}
     ports:
       - "8095:8200"
     volumes:

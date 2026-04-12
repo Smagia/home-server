@@ -1,10 +1,11 @@
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage:latest
+    image: ghcr.io/gethomepage/homepage@sha256:24e807e04b2ccb66de66ccad58fe80c37c54e910004b42347356a010c4fa53a5
     container_name: homepage
     environment:
       - TZ=${TZ:-Etc/UTC}
       - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_ALLOWED_HOSTS}
+      - HOMEPAGE_VAR_HOST=${HOST}
     ports:
       - "8087:3000"
     volumes:

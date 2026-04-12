@@ -1,6 +1,6 @@
 services:
   paperless-ngx:
-    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    image: ghcr.io/paperless-ngx/paperless-ngx@sha256:4b05bcd28e6923768000b5d247cbf2c66fd49bdc3f3b05955bd4f6790a638b01
     container_name: paperless-ngx
     environment:
       - TZ=${TZ:-Etc/UTC}
@@ -24,12 +24,12 @@ services:
     restart: unless-stopped
 
   paperless-redis:
-    image: redis:7-alpine
+    image: redis:8.6.2-alpine
     container_name: paperless-redis
     restart: unless-stopped
 
   paperless-db:
-    image: postgres:15-alpine
+    image: postgres:17-alpine
     container_name: paperless-db
     environment:
       - POSTGRES_DB=${PAPERLESS_DB_NAME:-paperless}
