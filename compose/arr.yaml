@@ -1,6 +1,5 @@
 services:
   prowlarr:
-    platform: linux/amd64
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
     environment:
@@ -14,7 +13,6 @@ services:
     restart: unless-stopped
 
   sonarr:
-    platform: linux/amd64
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
@@ -29,7 +27,6 @@ services:
     restart: unless-stopped
 
   radarr:
-    platform: linux/amd64
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
@@ -44,7 +41,6 @@ services:
     restart: unless-stopped
 
   readarr:
-    platform: linux/amd64
     image: lscr.io/linuxserver/readarr:develop
     container_name: readarr
     environment:
