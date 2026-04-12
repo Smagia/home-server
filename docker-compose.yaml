@@ -8,6 +8,9 @@ include:
   - path: compose/media.yaml
     env_file:
       - .env
+  - path: compose/arr.yaml
+    env_file:
+      - .env
   - path: compose/sync.yaml
     env_file:
       - .env

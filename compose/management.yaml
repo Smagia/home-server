@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer@sha256:47b064434edf437badf7337e516e07f64477485c8ecc663ddabbe824b20c672d
     container_name: portainer
     environment:
       - TZ=${TZ:-Etc/UTC}
@@ -12,11 +12,12 @@ services:
     restart: unless-stopped
 
   file-browser:
-    image: filebrowser/filebrowser
+    image: filebrowser/filebrowser@sha256:a9fefac049c110a740e378330b6ddd0b6a61fb9edd682aa5f54708c2ede3eb9f
     container_name: file-browser
     user: root
     environment:
       - TZ=${TZ:-Etc/UTC}
+    command: --database /config/filebrowser.db --root /srv
     ports:
       - "8089:80"
     volumes:

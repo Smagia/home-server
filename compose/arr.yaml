@@ -1,0 +1,41 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr@sha256:d7ca141af4d3403f6e38d9e0a166685c35618720be4796d475614686bd8ff578
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8099:9696"
+    volumes:
+      - ${SSD_DIR}/config/prowlarr:/config
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr@sha256:6854df9de20b8c82e1982604f39473d64dbb4c4584b1013f18f9ade1ee92af13
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8097:8989"
+    volumes:
+      - ${SSD_DIR}/config/sonarr:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr@sha256:0a32da12d098faf9942c34453d49d3c6c8ef3d5e77986415cb5aa3dbb3d09d2b
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Etc/UTC}
+    ports:
+      - "8098:7878"
+    volumes:
+      - ${SSD_DIR}/config/radarr:/config
+      - ${HDD_DIR}/media:/media
+    restart: unless-stopped

@@ -1,6 +1,6 @@
 services:
   transmission-container:
-    image: linuxserver/transmission
+    image: lscr.io/linuxserver/transmission@sha256:653e7394633786ef76b3ad7987299dabf730b68646c7fc27826dbb86d20986d4
     container_name: transmission-container
     environment:
       - PUID=1000
@@ -11,11 +11,11 @@ services:
       - "51414:51413"
     volumes:
       - ${SSD_DIR}/config/transmission:/etc/transmission-daemon
-      - ${HDD_DIR}/media/download:/downloads
+      - ${HDD_DIR}/media:/media
     restart: unless-stopped
 
   jellyfin:
-    image: jellyfin/jellyfin
+    image: jellyfin/jellyfin@sha256:1694ff069f0c9dafb283c36765175606866769f5d72f2ed56b6a0f1be922fc37
     container_name: jellyfin
     environment:
       - TZ=${TZ:-Etc/UTC}
@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
 
   calibre-web:
-    image: lscr.io/linuxserver/calibre-web:latest
+    image: lscr.io/linuxserver/calibre-web@sha256:12e7f6ccf495a73c0043fd96ccd950fdbc6684399d2cacf7f5c6fc8542536c20
     container_name: calibre-web
     user: root
     environment:

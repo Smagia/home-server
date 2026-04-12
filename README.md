@@ -9,9 +9,11 @@ compose/
 ├── dashboard.yaml    # Homer dashboard with links to all services
 ├── management.yaml   # Server management tools
 ├── media.yaml        # Media streaming and downloads
+├── arr.yaml          # *arr media automation stack
 ├── sync.yaml         # File synchronization
 ├── photos.yaml       # Photo and video backup (Immich)
-└── backup.yaml       # Data backup and restore
+├── backup.yaml       # Data backup and restore
+└── documents.yaml    # Document management (Paperless-ngx)
 ```
 
 The main `docker-compose.yaml` includes all compose files. You can run everything together or individual stacks separately.
@@ -38,6 +40,18 @@ The main `docker-compose.yaml` includes all compose files. You can run everythin
 | Transmission | BitTorrent client for downloading and seeding torrents | `8090` |
 | Jellyfin | Media server for streaming and managing your media collection | `8091` |
 | Calibre Web | Web application for managing and accessing your eBook library | `8092` |
+
+### Media Automation (`compose/arr.yaml`)
+
+| Service | Description | Port |
+|---|---|---|
+| Prowlarr | Indexer manager that feeds sources to Sonarr and Radarr | `8099` |
+| Sonarr | TV show monitoring, search, and download automation | `8097` |
+| Radarr | Movie monitoring, search, and download automation | `8098` |
+
+> **Integration**: Prowlarr manages indexers for Sonarr and Radarr. They use Transmission (from `media.yaml`) as the download client and organize media into `${HDD_DIR}/media/tv` and `${HDD_DIR}/media/movies`. All services share the same `/media` mount so Sonarr/Radarr create **hardlinks** instead of copying — no duplicate disk usage.
+>
+> **Autoconfiguration**: Run `./scripts/configure-arr.sh` after starting services to automatically configure download clients and root paths. See [arr-setup.md](docs/arr-setup.md) for the complete setup guide.
 
 ### Sync (`compose/sync.yaml`)
 
@@ -77,13 +91,18 @@ SSD_DIR/
 │   ├── transmission/
 │   ├── jellyfin/
 │   ├── calibre/
-│   └── duplicati/
+│   ├── duplicati/
+│   ├── prowlarr/
+│   ├── sonarr/
+│   └── radarr/
 └── immich/
     └── postgres/
 
 HDD_DIR/
 ├── media/
 │   ├── download/
+│   ├── movies/
+│   ├── tv/
 │   └── books/
 ├── photos/
 ├── sync/
@@ -102,6 +121,26 @@ HDD_DIR/
 ```bash
 docker compose up -d
 ```
+
+### Configure the *arr stack (Sonarr/Radarr)
+
+After starting services, autoconfigure the *arr stack:
+
+```bash
+./scripts/configure-arr.sh
+```
+
+This adds Transmission as the download client and sets up root paths. See [docs/arr-setup.md](docs/arr-setup.md) for the complete setup guide.
+
+### Configure Homepage with custom server URL (optional)
+
+If accessing the dashboard from a different machine, set `SERVER_URL` in your `.env`:
+
+```bash
+SERVER_URL=http://192.168.1.50 ./scripts/generate-homepage.sh
+```
+
+This updates the dashboard links to point to your server's IP instead of `localhost`. See `scripts/README.md` for details.
 
 ### Run a specific stack
 
