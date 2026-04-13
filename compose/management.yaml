@@ -14,9 +14,10 @@ services:
   file-browser:
     image: filebrowser/filebrowser@sha256:a9fefac049c110a740e378330b6ddd0b6a61fb9edd682aa5f54708c2ede3eb9f
     container_name: file-browser
-    user: root
     environment:
       - TZ=${TZ:-Etc/UTC}
+      - PUID=1000
+      - PGID=1000
     ports:
       - "8089:80"
     volumes:
