@@ -22,6 +22,7 @@ services:
       - "8089:80"
     volumes:
       - ${SSD_DIR}/config/filebrowser:/config
+      - ${SSD_DIR}/config/filebrowser/database:/database
       - ${SSD_DIR}:/srv/ssd
       - ${HDD_DIR}:/srv/hdd
     restart: unless-stopped
