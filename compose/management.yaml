@@ -21,6 +21,7 @@ services:
       - "8089:80"
     volumes:
       - ${SSD_DIR}/config/filebrowser:/config
+      - ${SSD_DIR}/config/filebrowser/database:/database
       - ${HDD_DIR}:/srv/hdd
       - ${SSD_DIR}:/srv/ssd
       - ${BACKUP_LOCATION}:/srv/backups
