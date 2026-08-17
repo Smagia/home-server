@@ -23,4 +23,5 @@ services:
       - ${SSD_DIR}/config/filebrowser:/config
       - ${HDD_DIR}:/srv/hdd
       - ${SSD_DIR}:/srv/ssd
+      - ${BACKUP_LOCATION}:/srv/backups
     restart: unless-stopped
