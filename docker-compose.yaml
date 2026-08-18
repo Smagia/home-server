@@ -20,6 +20,3 @@ include:
   - path: compose/documents.yaml
     env_file:
       - .env
-  - path: compose/proxy.yaml
-    env_file:
-      - .env
